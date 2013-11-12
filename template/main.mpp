@@ -47,8 +47,13 @@
             <span class="icon-bar"></span>
           </button>
           <a class="brand" href="/"><img src="/img/ocaml.png" alt="OCaml" /></a>
-          <div class="nav-collapse collapse" style="padding-right: 30px">
+          <div class="nav-collapse collapse">
             ((! input template/navbar.mpp !))
+	    {{! ifdef filename
+	    <a href="https://github.com/ocaml/ocaml.org/tree/redesign/((! tryget filename !))"
+	       title="Edit this page"  class="edit-this-page pull-right"
+	       ><!-- Image in CSS --></a>
+	    !}}
             <form id="searchform" class="navbar-search pull-right"
 		  method="get" action="http://www.google.com/search">
               <input value="site:http://ocaml.org/" name="q" type="hidden" />
@@ -58,15 +63,6 @@
           </div>
         </div>
       </div>
-{{! ifdef filename
-      <map name="ribbon">
-	<area shape="poly" coords="0,0,75,75,75,0"
-	      href="https://github.com/ocaml/ocaml.org/tree/redesign/((! tryget filename !))">
-      </map>
-      <img src="/img/ribbon.png" usemap="#ribbon" alt="Edit"
-	   title="Edit this page"
-	   style="position:absolute; top:0; right:0; border:none;">
-!}}
     </nav>
     {{! ifdef core ((! get contents !)) !}}
     {{! else ((! input template/core.mpp !)) !}}
